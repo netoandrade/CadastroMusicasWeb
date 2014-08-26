@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Listar artistas</title>
+	<h:outputStylesheet name="styles-PSC.css" library="css"></h:outputStylesheet>
+
+</h:head>
+<h:body>
+	<h:form>
+		<p:growl></p:growl>
+		<p:panel menuTitle="Listar Musicas" header="Musicas">
+			<p:dataTable var="musica" value="#{musicaBean.colecaoMusicas}">
+				<p:column headerText="Titulo">
+					<h:outputText value="#{musica.titulo}" />
+				</p:column>
+
+				<p:column headerText="Artista">
+					<h:outputText value="#{musica.artista.nome}" />
+				</p:column>
+				<p:column headerText="Ações">
+					<h:commandLink action="#{musicaBean.editar(musica)}">
+						<h:graphicImage library="images" name="editar.png"></h:graphicImage>
+					</h:commandLink>
+					&nbsp;
+					<h:commandLink action="#{musicaBean.excluir(musica)}"
+						onclick="return confirm('Confirma a exclusão da música: #{musica.titulo}?')">
+						<h:graphicImage library="images" name="excluir.gif"></h:graphicImage>
+					</h:commandLink>
+				</p:column>
+			</p:dataTable>
+			<f:facet name="footer">
+				<p:commandLink action="index.xhtml" immediate="true" ajax="false">Home</p:commandLink>
+			</f:facet>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Musicas Web .. Cadastro de Musicas</title>
+	<h:outputStylesheet name="styles-PSC.css" library="css"></h:outputStylesheet>
+</h:head>
+<h:body>
+	<h:form>
+		<p:panel header="Cadastrar Músicas">
+		<p:growl></p:growl>
+		<h:inputHidden value="#{musicaBean.musica.codigo}"></h:inputHidden>
+Titulo: <p:inputText value="#{musicaBean.musica.titulo}" required="true" requiredMessage="Título da música é obrigatório">
+			</p:inputText>
+			<br></br>
+Artista: <p:selectOneMenu value="#{musicaBean.artistaSelecionado}" required="true" requiredMessage="Artista é obrigatório"  maxlength="40">
+				<f:selectItem noSelectionOption="true" itemLabel="Selecione um artista"></f:selectItem>
+				<f:selectItems value="#{musicaBean.colecaoArtistas}" 
+				var="art" itemValue="#{art.codigo}" itemLabel="#{art.nome}"></f:selectItems>
+			</p:selectOneMenu>
+			<br></br>
+			<p:commandButton action="#{musicaBean.salvar}" value="Salvar" ajax="false"></p:commandButton>
+			<f:facet name="footer">
+				<p:commandLink action="index.xhtml" immediate="true" ajax="false">Home</p:commandLink>
+			</f:facet>
+			
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

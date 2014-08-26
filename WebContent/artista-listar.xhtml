@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Listar artistas</title>
+	<h:outputStylesheet name="styles-PSC.css" library="css"></h:outputStylesheet>	
+</h:head>
+<h:body>
+	<h:form>
+		<p:growl showDetail="true"></p:growl>
+		<p:panel menuTitle="Cadastrar Artistas" header="Artistas ">
+			<p:dataTable var="art" value="#{artistaBean.colecao}">
+				<p:column headerText="Nome">
+					<h:outputText value="#{art.nome}" />
+				</p:column>
+
+				<p:column headerText="Genero">
+					<h:outputText value="#{art.genero}" />
+				</p:column>
+				<p:column headerText="Ações">
+					<h:commandLink action="#{artistaBean.editar(art)}" value="Editar"></h:commandLink>
+					&nbsp;
+					<h:commandLink action="#{artistaBean.excluir(art)}" value="Excluir"></h:commandLink>
+				</p:column>
+			</p:dataTable>
+			<f:facet name="footer">
+				<p:commandLink action="index.xhtml" immediate="true" ajax="false">Home</p:commandLink>
+			</f:facet>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Musicas Web .. Cadastro Artistas</title>
+	<h:outputStylesheet name="styles-PSC.css" library="css"></h:outputStylesheet>
+</h:head>
+<h:body>
+	<h:form>
+		<p:panel header="Cadastrar Artistas">
+			<p:messages></p:messages>
+	
+			<p:message for="nome"></p:message>
+			<h:inputHidden value="#{artistaBean.artista.codigo}"></h:inputHidden>
+Nome: <p:inputText id="nome" value="#{artistaBean.artista.nome}"
+				required="true" requiredMessage="Nome obrigatório">
+			</p:inputText>
+			<br></br>
+Gênero: <p:selectOneRadio value="#{artistaBean.artista.genero}">
+				<f:selectItems value="#{artistaBean.generos}"></f:selectItems>
+			</p:selectOneRadio>
+			<p:commandButton action="#{artistaBean.salvar}" value="Salvar"
+				ajax="false"></p:commandButton>
+			<f:facet name="footer">
+				<p:commandLink action="index.xhtml" immediate="true" ajax="false">Home</p:commandLink>
+			</f:facet>
+		</p:panel>
+	</h:form>
+
+</h:body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Músicas Web</title>
+	<h:outputStylesheet name="styles-PSC.css" library="css"></h:outputStylesheet>
+</h:head>
+<h:body>
+	<f:view>
+		<h:form>
+			<p:growl id="messages" />
+			<p:menubar>
+				<p:submenu label="Cadastro" icon="ui-icon-document">
+					<p:submenu label="Artista" icon="ui-icon-contact">
+						<p:menuitem value="Novo" url="artista-salvar.xhtml?faces-redirect=true" />
+						<p:menuitem value="Listar" url="artista-listar.xhtml?faces-redirect=true" />
+					</p:submenu>
+					<p:submenu label="Musica" icon="ui-icon-contact">
+						<p:menuitem value="Novo" url="musica-salvar.xhtml?faces-redirect=true" />
+						<p:menuitem value="Listar" url="musica-listar.xhtml?faces-redirect=true" />
+					</p:submenu>
+				</p:submenu>
+				<f:facet name="options">
+					<p:inputText style="margin-right:10px" />
+					<p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+				</f:facet>
+			</p:menubar>
+
+		</h:form>
+	</f:view>
+</h:body>
+</html>
